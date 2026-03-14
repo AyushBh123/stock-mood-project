@@ -15,4 +15,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # 6. Tell the container how to start our "waiter" when it turns on
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Start BOTH the API (Kitchen) and the Dashboard (Dining Room) at the same time!
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port 8000 & streamlit run dashboard.py --server.port 7860 --server.address 0.0.0.0"]

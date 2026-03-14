@@ -19,3 +19,10 @@ jobs:
     # Step B: Try to build the Docker box. If this fails, we know our code is broken!
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag stock-mood-api:test
+
+    # NEW: This pushes the working code to the live internet!
+    - name: Deploy to Hugging Face Spaces
+      uses: huggingface/spaces-github-action@main
+      with:
+        hf_token: ${{ secrets.HF_TOKEN }}
+        space_id: AyushBh020106/stock-mood-ring
