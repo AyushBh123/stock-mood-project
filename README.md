@@ -1,3 +1,11 @@
+---
+title: Stock Mood Ring
+emoji: 📈
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
 # 📈 Stock Market Mood Ring: DevOps for AI Deployment
 
 **Capstone Project 5 - Unit V: DevOps for AI**
