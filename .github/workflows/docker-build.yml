@@ -1,28 +1,28 @@
-name: Test Docker Build
+name: Test and Deploy
 
-# 1. Tell the robot WHEN to run (every time we push to the 'main' branch)
 on:
   push:
     branches: [ "main" ]
 
-# 2. Tell the robot WHAT to do
 jobs:
-  build-and-test:
-    # Give the robot a temporary cloud computer to work on
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Step A: Download our code from GitHub onto the cloud computer
+    # 1. Check out code (fetch-depth: 0 ensures we get the whole Git history to push)
     - name: Check out the code
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
-    # Step B: Try to build the Docker box. If this fails, we know our code is broken!
+    # 2. Build the Docker box to make sure nothing is broken
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag stock-mood-api:test
 
-    # NEW: This pushes the working code to the live internet!
+    # 3. The Fix! Force-push directly to Hugging Face using secure Git commands
     - name: Deploy to Hugging Face Spaces
-      uses: huggingface/spaces-github-action@main
-      with:
-        hf_token: ${{ secrets.HF_TOKEN }}
-        space_id: AyushBh020106/stock-mood-ring
+      env:
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      run: |
+        git remote add space https://AyushBh020106:$HF_TOKEN@huggingface.co/spaces/AyushBh020106/stock-mood-ring
+        git push --force space main
