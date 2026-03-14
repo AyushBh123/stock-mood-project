@@ -43,7 +43,7 @@ Our team implemented a professional MLOps workflow to ensure the AI model can be
 ### Option 1: Running the Full Stack Locally (Two Terminals)
 1. **Clone this repository:**
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/stock-mood-project.git](https://github.com/YOUR_USERNAME/stock-mood-project.git)
+   git clone [https://github.com/AyushBh123/stock-mood-project.git](https://github.com/YOUR_USERNAME/stock-mood-project.git)
    cd stock-mood-project
    ```
 
@@ -76,5 +76,5 @@ Our team implemented a professional MLOps workflow to ensure the AI model can be
    *Visit `http://127.0.0.1:8000/docs` in your browser to test the API!*
 
 ## 👥 Team Members
-* **[Your Name Here]** * **[Teammate 1 Name Here]** * **[Teammate 2 Name Here]** ---
+* **Ayush Bhardwaj** * **Swayam Prakash** * **Lakshay Saharan** ---
 *Built for Unit V: DevOps for AI.*
